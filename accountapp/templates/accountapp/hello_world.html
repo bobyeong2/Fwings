@@ -3,24 +3,36 @@
 
 {% block content %}
 
-    <div style="height: 20rem; background-color: #38df81; border-radius: 1rem; margin: 2rem; ">
-        <h1>
+    <div style= "border-radius: 1rem; margin: 2rem; text-align: center">
+        <h1 style="font-family: 'Hachi Maru Pop', cursive;">
 
-            Testing
+            Hello World LIST!
         </h1>
 
         <form action="/account/hello_world/" , method="post">
 
             {% csrf_token %}
+
+            <div>
+
+                <input type="text" name="hello_world_input">
+
+            </div>
+
+
             <input type="submit" class="btn btn-primary" value="POST">
         </form>
 
-        <h3>
 
-            {{ text }}
+        {% if hello_world_output %}
 
-        </h3>
+            <h3>
 
+                {{ hello_world_output.text }}
+
+            </h3>
+
+        {% endif %}
     </div>
 
 {% endblock %}
