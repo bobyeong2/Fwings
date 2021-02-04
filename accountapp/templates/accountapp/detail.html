@@ -1,38 +1,45 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
 
     <div>
         <div  style="text-align: center; max-width: 500px; margin: 4rem auto">
 
-            <p>
-                {{ target_user.date_joined }}
-            </p>
-
-            <img src="{{ target_user.profile.image.url }}" alt="" style="height: 15rem; width: 15rem; border-radius: 15rem;">
+{#            <p>#}
+{#                {{ target_user.date_joined }}#}
+{#            </p>#}
 
             {% if target_user.profile %}
+            <img src="{{ target_user.profile.image.url }}" alt=""
+                 style="height: 15rem; width: 15rem; border-radius: 15rem;">
             <h2 style="font-family: 'NanumBarunpenB'">
-                {{ target_user.profile.nickname }}
-                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
-                    edit
-                </a>
+                    {{ target_user.profile.nickname }}
+                    {% if target_user == user %}
+                    <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                        edit
+                    </a>
+                    {% endif %}
             </h2>
-
-            {% else %}
-
-                <a href="{% url 'profileapp:create' %}">
-                    <h2>
-                        Create Profile
-                    </h2>
-                </a>
-            {% endif %}
 
             <h5 style="margin-bottom: 3rem">
                 {{ target_user.profile.message }}
-
             </h5>
+
+            {% else %}
+                {% if target_user == user %}
+                <a href="{% url 'profileapp:create' %}">
+                    <h2 style="font-family: NanumBarunpenB">
+                        Create Profile
+                    </h2>
+                </a>
+
+                {% else %}
+                    <h2>
+                        닉네임 미설정
+                    </h2>
+                {% endif %}
+            {% endif %}
+
 
             {% if target_user == user %}
 
