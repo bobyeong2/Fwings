@@ -28,7 +28,7 @@
     <div class="container">
         {% for article in article_list %}
         <a href="url 'articleapp:detail' pk=article.pk">
-            {% include '../../../templates/snippets/card.html' with article=article %}
+            {% include 'snippets/card.html' with article=article %}
         </a>
         {% endfor %}
     </div>
@@ -40,7 +40,7 @@
     </div>
     {% endif %}
 
-    {% include '../../../templates/snippets/pagination.html' with page_obj=page_obj %}
+    {% include 'snippets/pagination.html' with page_obj=page_obj %}
 
     <div style="text-align: center">
 
