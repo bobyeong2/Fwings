@@ -1,6 +1,12 @@
 
 
-<div style="display: block;">
+<div style="display: block; text-align: center">
     <img src="{{ project.image.url }}" alt="">
 
+    <h6 class="mt-3" style="font-family: Consolas;">
+
+
+        {{ project.title | truncatechars:8 }}
+
+    </h6>
 </div>
