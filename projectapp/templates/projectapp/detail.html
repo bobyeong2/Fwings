@@ -52,9 +52,25 @@
         {% endif %}
     </div>
 
+{#    <p>#}
+{#        {% if target_project.writer == user %}#}
+{#        <a href="{% url 'projectapp:update' pk=target_project.pk %}"#}
+{#        class="btn btn-primary rounded-pill col-3">#}
+{#                Update Article#}
+{#        </a>#}
+{#        <a href="{% url 'projectapp:delete' pk=target_project.pk %}"#}
+{#        class="btn btn-danger rounded-pill col-3">#}
+{#                Delete Article#}
+{#        </a>#}
+{#        {% endif %}#}
+{##}
+{#    </p>#}
+
     <div>
+
         {% include 'snippets/list_beginner.html' with article_list=object_list %}
     </div>
+
 
     </div>
 

@@ -11,11 +11,11 @@
             <h4> Delete Article : {{ target_project.title }}</h4>
         </div>
 
-        <form action="{% url 'projectapp:delete' pk=target_project.pk %}" method="post">
+        <form action="{% url 'projectapp:delete' pk=target_project.pk %}" method="post" >
 
             {% csrf_token %}
 
-            <input type="submit" class="btn btn-danger rounded-pill col-3 mt-3"">
+            <input type="submit" class="btn btn-danger rounded-pill col-3 mt-3">
         </form>
     </div>
 

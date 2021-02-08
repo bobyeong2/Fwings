@@ -30,10 +30,10 @@
 
         <hr>
             <img src="{{ target_article.image.url }}" , alt="">
-            <p>
-                {{ target_article.content }}
+            <div class="text-left">
+                {{ target_article.content | safe }}
 
-            </p>
+            </div>
 
             {% if target_article.writer == user %}
             <a href="{% url 'articleapp:update' pk=target_article.pk %}"
