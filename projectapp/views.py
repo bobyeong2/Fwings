@@ -3,8 +3,10 @@ from django.shortcuts import render
 # Create your views here.
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, ListView, DeleteView, DetailView
-from django.views.generic.edit import FormMixin, UpdateView
+from django.views.generic.edit import UpdateView
+from django.views.generic.list import MultipleObjectMixin
 
+from articleapp.models import Article
 from commentapp.forms import CommentCreationForm
 from projectapp.forms import ProjectCreationForm
 from projectapp.models import Project
@@ -33,11 +35,18 @@ class ProjectDeleteView(DeleteView):
     template_name = 'projectapp/delete.html'
 
 
-class ProjectDetailView(DetailView, FormMixin):
+class ProjectDetailView(DetailView, MultipleObjectMixin):
     model = Project
     form_class = CommentCreationForm
     context_object_name = 'target_project'
     template_name = 'projectapp/detail.html'
+
+    paginate_by = 25
+
+    def get_context_data(self, **kwargs):
+        object_list = Article.objects.filter(project=self.get_object())
+        return super(ProjectDetailView, self).get_context_data(
+            object_list=object_list, **kwargs)
 
 
 class ProjectUpdateView(UpdateView):
