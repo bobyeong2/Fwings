@@ -44,6 +44,8 @@ class ProjectDetailView(DetailView, MultipleObjectMixin):
 
     paginate_by = 25
 
+    queryset = Project.objects.all()
+
     def get_context_data(self, **kwargs):
 
         project = self.object

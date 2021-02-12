@@ -37,6 +37,7 @@ class ArticleDetailView(DetailView, FormMixin):
     template_name = 'articleapp/detail.html'
 
 
+
 @method_decorator(article_ownership_required, 'get')
 @method_decorator(article_ownership_required, 'post')
 class ArticleUpdateView(UpdateView):
@@ -60,4 +61,5 @@ class ArticleListView(ListView):
     model = Article
     context_object_name = 'article_list'
     template_name = 'articleapp/list.html'
+    queryset = Article.objects.all()
     paginate_by = 25
