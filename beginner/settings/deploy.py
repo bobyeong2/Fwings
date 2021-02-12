@@ -1,4 +1,4 @@
-import  os, environ
+import os, environ
 
 from .base import *
 
@@ -11,7 +11,7 @@ env = environ.Env(
 
 environ.Env.read_env(
 
-    env_file= os.path.join(BASE_DIR , '.env')
+    env_file=os.path.join(BASE_DIR, '.env')
 
 )
 # Quick-start development settings - unsuitable for production
@@ -25,14 +25,13 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django_beginner',
+        'NAME': 'django',
         'USER': 'django',
         'PASSWORD': 'password1234',
         'HOST': 'mariadb',
