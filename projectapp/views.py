@@ -23,7 +23,7 @@ class ProjectCreateView(CreateView):
 
 
 class ProjectListView(ListView):
-    model = Project
+    model = Project.objects.order_by('created_at')
     context_object_name = 'project_list'
     template_name = 'projectapp/list.html'
     paginate_by = 25
