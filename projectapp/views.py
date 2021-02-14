@@ -55,7 +55,7 @@ class ProjectDetailView(DetailView, MultipleObjectMixin):
         else:
             subscription = None
 
-        object_list = Article.objects.filter(project=self.get_object())
+        object_list = Article.objects.filter(project=self.get_object()).order_by('project__created_at')
         return super(ProjectDetailView, self).get_context_data(
             subscription=subscription,
             object_list=object_list, **kwargs)
