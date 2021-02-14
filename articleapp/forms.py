@@ -8,7 +8,7 @@ from projectapp.models import Project
 class ArticleCreationForm(ModelForm):
     content = forms.CharField(widget=forms.Textarea(attrs={'class': 'editable',
                                                            'style': 'height: auto;'}))
-    project = forms.ModelChoiceField(queryset=Project.objects.all().order_by('project'), required=False)
+    project = forms.ModelChoiceField(queryset=Project.objects.all().order_by('article'), required=False)
 
     class Meta:
 
