@@ -41,16 +41,14 @@ class ProjectDetailView(DetailView, MultipleObjectMixin):
     form_class = CommentCreationForm
     context_object_name = 'target_project'
     template_name = 'projectapp/detail.html'
-
     paginate_by = 25
-
 
     def get_context_data(self, **kwargs):
 
         project = self.object
         user = self.request.user
 
-        if user.is_authenticated :
+        if user.is_authenticated:
             subscription = Subscription.objects.filter(user=user,
                                                        project=project)
 
