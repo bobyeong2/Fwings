@@ -1,4 +1,8 @@
 # Django로 웹페이지 구축 ( Pinterest )
-<div>
-  [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fbobyeong2%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
-  </div>
+---
+
+Pinterest와 비슷한 이미지 저장소 느낌의 웹애플리케이션을 제작하였습니다.
+
+해당 문서는 django + nginx + gunicorn + django portanier를 이용하여 배포까지 완료하였으며 < 클라우드서버 = vultr  // http://158.247.223.215/>
+
+django 기초문법 및 docker 배포 전반적인(기초적인) 프로세스를 공부하였음 현프로젝트를 경험삼아 Python ML을 이용한 데이터 시각화 웹앱을 개발할 예정입니다.
